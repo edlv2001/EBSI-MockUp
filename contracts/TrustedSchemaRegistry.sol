@@ -10,7 +10,6 @@ contract TrustedSchemaRegistry {
     function registerSchema(string memory schemaId, string memory schemaJson) public {
         require(bytes(schemaId).length > 0, "Schema ID must not be empty.");
         require(bytes(schemaJson).length > 0, "Schema JSON must not be empty.");
-        require(bytes(schemas[schemaId]).length == 0, "Schema ID already exists.");
 
         schemas[schemaId] = schemaJson;
         emit SchemaRegistered(schemaId, schemaJson);
